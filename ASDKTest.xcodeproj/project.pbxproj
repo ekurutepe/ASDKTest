@@ -13,6 +13,7 @@
 		87D37B471C7749DD004B18F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D37B451C7749DD004B18F0 /* Main.storyboard */; };
 		87D37B491C7749DD004B18F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87D37B481C7749DD004B18F0 /* Assets.xcassets */; };
 		87D37B4C1C7749DD004B18F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D37B4A1C7749DD004B18F0 /* LaunchScreen.storyboard */; };
+		87D37B541C774A76004B18F0 /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87D37B531C774A76004B18F0 /* AsyncDisplayKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		87D37B481C7749DD004B18F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87D37B4B1C7749DD004B18F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87D37B4D1C7749DD004B18F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87D37B531C774A76004B18F0 /* AsyncDisplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AsyncDisplayKit.framework; path = Carthage/Build/iOS/AsyncDisplayKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87D37B541C774A76004B18F0 /* AsyncDisplayKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +69,7 @@
 				87D37B481C7749DD004B18F0 /* Assets.xcassets */,
 				87D37B4A1C7749DD004B18F0 /* LaunchScreen.storyboard */,
 				87D37B4D1C7749DD004B18F0 /* Info.plist */,
+				87D37B551C775159004B18F0 /* Frameworks */,
 				87D37B3C1C7749DD004B18F0 /* Supporting Files */,
 			);
 			path = ASDKTest;
@@ -79,6 +83,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		87D37B551C775159004B18F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				87D37B531C774A76004B18F0 /* AsyncDisplayKit.framework */,
+			);
+			name = Frameworks;
+			path = ..;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -89,6 +102,7 @@
 				87D37B351C7749DD004B18F0 /* Sources */,
 				87D37B361C7749DD004B18F0 /* Frameworks */,
 				87D37B371C7749DD004B18F0 /* Resources */,
+				87D37B561C7751D9004B18F0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -143,6 +157,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		87D37B561C7751D9004B18F0 /* Embed Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/AsyncDisplayKit.framework",
+			);
+			name = "Embed Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		87D37B351C7749DD004B18F0 /* Sources */ = {
@@ -261,6 +293,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ASDKTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.automatic.ASDKTest;
@@ -272,6 +308,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ASDKTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.automatic.ASDKTest;
